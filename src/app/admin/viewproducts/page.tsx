@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Product {
   _id: string;
@@ -87,7 +88,7 @@ export default function ViewProducts() {
         {products.map((product) => (
           <div key={product._id} className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="relative h-48">
-              <img 
+              <Image
                 src={product.images[0]} 
                 alt={product.name}
                 className="w-full h-full object-cover"

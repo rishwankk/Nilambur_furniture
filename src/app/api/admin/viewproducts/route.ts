@@ -27,16 +27,3 @@ export async function DELETE(
   }
 }
 
-export async function PUT(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
-  try {
-    await connectDb();
-    const data = await request.json();
-    const updatedProduct = await Product.findByIdAndUpdate(params.id, data, { new: true });
-    return NextResponse.json(updatedProduct);
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to update product' }, { status: 500 });
-  }
-}
